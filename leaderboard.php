@@ -27,5 +27,11 @@ $result = $conn->query("SELECT name, class, phone, score FROM users ORDER BY sco
         </tr>
         <?php endwhile; ?>
     </table>
+
+    <!-- Tambahkan tombol kembali ke halaman index.php -->
+    <br>
+    <form action="index.php" method="get">
+        <button type="submit">Kembali</button>
+    </form>
 </body>
 </html>

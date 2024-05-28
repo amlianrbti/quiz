@@ -39,7 +39,7 @@ $questions = [
     ["question" => "Apa nama benua terkecil di dunia?", "answer" => "Australia"],
     ["question" => "Apa warna primer dalam seni rupa?", "answer" => "Merah, Biru, Kuning"],
     ["question" => "Siapa yang menemukan telepon?", "answer" => "Alexander Graham Bell"],
-    ["question" => "Apa ibu kota India?", "answer" => "TNew Delhi"],
+    ["question" => "Apa ibu kota India?", "answer" => "New Delhi"],
     ["question" => "Apa nama tarian tradisional dari Bali?", "answer" => "Tari Kecak"],
     ["question" => "Siapa pelukis Mona Lisa?", "answer" => "Leonardo da Vinci"],
     ["question" => "Apa nama satelit alami Bumi?", "answer" => "Bulan"],
@@ -49,14 +49,14 @@ $questions = [
     ["question" => "Siapa yang menciptakan komputer pertama kali?", "answer" => "Charles Babbage"],
     ["question" => "Apa nama planet terbesar di tata surya?", "answer" => "Jupiter"],
     ["question" => "Apa ibu kota Inggris?", "answer" => "London"],
-    ["question" => "Siapa penyanyi lagu Thriller?", "answer" => "    Michael Jackson"],
+    ["question" => "Siapa penyanyi lagu Thriller?", "answer" => "Michael Jackson"],
     ["question" => "Apa nama hewan tercepat di darat?", "answer" => "Cheetah"],
     ["question" => "Apa nama ibukota Rusia?", "answer" => "Moskow"],
     ["question" => "Apa nama senyawa yang terdiri dari natrium dan klor?", "answer" => "Garam dapur (NaCl)"],
     ["question" => "Siapa penemu pesawat terbang?", "answer" => "Wright bersaudara (Orville dan Wilbur Wright)"],
     ["question" => "Apa nama benua terbesar di dunia?", "answer" => "Asia"],
     ["question" => "Apa nama negara dengan jumlah penduduk terbesar di dunia?", "answer" => "Tiongkok"],
-    ["question" => "Apa nama ibu kota Mesir?", "answer" => "Apa nama ibu kota Mesir?"],
+    ["question" => "Apa nama ibu kota Mesir?", "answer" => "Kairo"],
     ["question" => "Siapa penulis buku '1984'?", "answer" => "George Orwell"],
     ["question" => "Apa nama ibukota Kanada?", "answer" => "Ottawa"],
     ["question" => "Siapa pencipta karakter Sherlock Holmes?", "answer" => "Arthur Conan Doyle"],
@@ -91,7 +91,7 @@ $questions = [
     ["question" => "Apa nama zat yang dibutuhkan tumbuhan untuk fotosintesis?", "answer" => "Karbon dioksida"],
     ["question" => "Apa nama benua yang terletak di Kutub Selatan?", "answer" => "Antartika"],
     ["question" => "Apa nama alat musik yang berasal dari Jepang?", "answer" => "Koto"],
-    ["question" => "Siapa pelukis 'The Starry Night?", "answer" => "    Vincent van Gogh"],
+    ["question" => "Siapa pelukis 'The Starry Night?", "answer" => "Vincent van Gogh"],
     ["question" => "Apa nama ibukota Argentina?", "answer" => "Buenos Aires"],
     ["question" => "Apa nama senyawa yang ditemukan di garam dapur dan air laut?", "answer" => "NaCl"],
     ["question" => "Siapa penulis 'The Catcher in the Rye'?", "answer" => "J.D. Salinger"],
@@ -106,25 +106,11 @@ $questions = [
     ["question" => "Tag HTML apa yang digunakan untuk membuat tabel?", "answer" => "`<table>`,`<tr>`,`<td>`,`<th>`"],
     ["question" => "Apa kepanjangan dari CSS?", "answer" => "Cascading Style Sheets"],
     ["question" => "Apa fungsi dari properti `display: none;` di CSS?", "answer" => "Menyembunyikan elemen dari tampilan, elemen tetap ada di DOM tapi tidak terlihat dan tidak mempengaruhi layout."],
-    ["question" => "Apa perbedaan antara padding dan margin di CSS?", "answer" => "Padding adalah ruang di dalam batas elemen, sedangkan margin adalah ruang di luar batas elemen."],
-    ["question" => "Bagaimana cara menerapkan CSS hanya untuk elemen dengan kelas tertentu?", "answer" => ""],
-    ["question" => "", "answer" => ""],
-    ["question" => "", "answer" => ""],
-    ["question" => "", "answer" => ""],
-    ["question" => "", "answer" => ""],
-    ["question" => "", "answer" => ""],
-    ["question" => "", "answer" => ""],
-    ["question" => "", "answer" => ""],
-    ["question" => "", "answer" => ""],
-    ["question" => "", "answer" => ""],
-    ["question" => "", "answer" => ""],
-    ["question" => "", "answer" => ""],
-    ["question" => "", "answer" => ""],
-    ["question" => "", "answer" => ""],
-    ["question" => "", "answer" => ""],
-
-
+    ["question" => "Apa perbedaan antara padding dan margin di CSS?", "answer" => "Padding adalah ruang di dalam batas elemen, sedangkan margin adalah ruang di luar batas elemen."]
 ];
+
+// Acak urutan pertanyaan
+shuffle($questions);
 
 $_SESSION['questions'] = $questions;
 $_SESSION['current_question'] = 0;
@@ -138,7 +124,7 @@ $_SESSION['current_question'] = 0;
 <body>
     <h1>Kuis</h1>
     <form action="process.php" method="post">
-        <p><?php echo $questions[0]['question']; ?></p>
+        <p><?php echo $_SESSION['questions'][0]['question']; ?></p>
         <input type="text" name="answer" required><br><br>
         <button type="submit" name="action" value="next">Next</button>
         <button type="submit" name="action" value="stop">Stop</button>
